@@ -1,0 +1,118 @@
+.main{
+  /* border: 2px solid green; */
+}
+
+*{
+    font-family: Areal;
+}
+.b-container{
+    width:200px;
+    height:150px;
+    background-color: #ccc;
+    margin:0px auto;
+    padding:10px;
+    font-size:30px;
+    color: #fff;
+}
+
+.b-popup .b-popup-content{
+    margin:40px auto 0px auto;
+    width:100px;
+    height: 40px;
+    padding:10px;
+    background-color: #c5c5c5;
+    border-radius:5px;
+    box-shadow: 0px 0px 10px #000;
+}
+
+.tooltip img{
+    margin:10px;
+    width:400px;
+}
+
+.tooltip .overlay{
+    display:none;
+    position: absolute;
+    top: 0px;
+    left: 600px;
+    padding:10px;
+    background-color: #c5c5c5;
+    border-radius:5px;
+    background: #fff;
+    box-shadow: -2px 2px 10px -1px #333; 
+    border-radius: 5px;	
+}
+ 
+.tooltip:hover .overlay{
+  display: block;
+}
+
+.overlay p{
+  margin: 5px 15px; 
+}
+
+.pop_title{
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+  font-size: 20pt;
+  
+}
+
+.pop_area{
+  border: 1px dotted green;
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  width: 50px;
+  height: 50px;
+}
+.pop_1{
+  left:37px;
+  top:106px;
+  width:87px;
+  height:143px
+}
+
+.pop_2{
+    left: 141px;
+    top: 178px;
+    width: 92px;
+    height: 102px;
+}
+
+.pop_3{
+    left: 424px;
+    top: 163px;
+    width: 92px;
+    height: 157px;
+}
+
+.pop_4{
+    left: 248px;
+    top: 254px;
+    width: 60px;
+    height: 24px;
+}
+
+.pop_5{
+    left: 141px;
+    top: 75px;
+    width: 92px;
+    height: 115px;
+}
+
+.pop_area:hover {
+  border: 3px solid green;
+}
+
+.slide {
+  opacity: 0;
+  z-index: 10;
+  position: absolute;
+  margin-top: 20px;
+}
+
+[id^='slide']:checked +.slide {
+  opacity: 1;
+  z-index: 100;
+   
+ }
