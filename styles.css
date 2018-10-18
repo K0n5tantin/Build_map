@@ -47,8 +47,13 @@
   display: block;
 }
 
-.overlay p{
-  margin: 5px 15px; 
+.overlay{
+  position: absolute;
+  z-index: 1000;
+}
+
+.overlay p {
+  margin: 5px 15px;
 }
 
 .pop_title{
@@ -108,7 +113,7 @@
   opacity: 0;
   z-index: 10;
   position: absolute;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 [id^='slide']:checked +.slide {
