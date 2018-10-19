@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Часы</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body> 
+  
+  
+  <div class="wrapper">
+    
+    <label for="slide-0">Number</label>
+      <input type="radio" id="slide-0" name="slides" checked>
+      <div class="slide">
+        <div id="number_clock"></div>
+      </div>  
+      
+      <label for="slide-1">Canvas</label>
+      <input type="radio" id="slide-1" name="slides" >
+      <div class="slide">
+        <div id="clock">
+          <canvas height='480' width='480' id='myCanvas'></canvas>
+        </div>
+      </div>
+      
+      <label for="slide-2">SVG</label>
+      <input type="radio" id="slide-2" name="slides">
+      <div class="slide">
+        <div class="background_img"></div>    
+      </div>
+    </div>
+  
+  
+  
+  <script src="js/clock.js"></script>
+</body> 
+ 
+</html>

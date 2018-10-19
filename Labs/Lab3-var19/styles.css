@@ -1,0 +1,18 @@
+#number_clock{
+	color: #0071D0;
+	font-weight: bold;
+	font-size: 20px;
+  margin: 100px;
+}
+.slide {
+  opacity: 0;
+  z-index: 10;
+  position: absolute;
+  margin-top: 0px;
+}
+
+[id^='slide']:checked +.slide {
+  opacity: 1;
+  z-index: 100;
+   
+ }
