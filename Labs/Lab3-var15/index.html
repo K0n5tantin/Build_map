@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Графики функций</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body> 
+  <p>Границы отображения</p>
+  <p>y<sub>min</sub> = <input type="text" id="ymin" class="input_box" value="-10"/> y<sub>max</sub> = <input type="text" id="ymax" class="input_box" value="10"/></p>
+  <p>x<sub>min</sub> = <input type="text" id="xmin" class="input_box" value="-10"/> x<sub>max</sub> = <input type="text" id="xmax" class="input_box" value="10"/></p>
+  
+	<ul>
+		<li>
+			<input type="checkbox" id="check-1" name="checkes" class="graphs" checked />
+			<label for="check-1">График y = k<sub>1</sub>x + b<sub>1</sub></label>
+			<p>График y = <input type="text" id="k1" name="index11" class="input_box" value="1"/> x + <input type="text" id="b1" name="index12" class="input_box" value="1"/></p>
+		</li>
+		<li>
+			<input type="checkbox" id="check-2" name="checkes" class="graphs" checked />
+			<label for="check-2">График y = k<sub>2</sub>x<sup>2</sup> + b<sub>2</sub></label>
+			<p>График y = <input type="text" id="k2" name="index21" class="input_box" value="1"/> x<sup>2</sup> + <input type="text" id="b2" name="index22" class="input_box" value="0"/></p>
+		</li>
+	</ul>
+	
+	
+  <div class="wrapper">
+    
+      <label for="slide-1">Canvas</label>
+      <input type="radio" id="slide-1" name="slides" >
+      <div class="slide">
+        <div id="graph_canvas">
+          <canvas height='480' width='480' id='myCanvas'></canvas>
+        </div>
+      </div>
+      
+    </div>
+  
+  <script src="js/graph.js"></script>
+  
+</body> 
+ 
+</html>
