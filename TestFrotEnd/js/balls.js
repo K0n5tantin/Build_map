@@ -1,3 +1,64 @@
+function animate(options) {
+
+  var start = performance.now();
+
+  requestAnimationFrame(function animate(time) {
+    // timeFraction от 0 до 1
+    var timeFraction = (time - start) / options.duration;
+    if (timeFraction > 1) timeFraction = 1;
+
+    // текущее состояние анимации
+    var progress = options.timing(timeFraction)
+    
+    options.draw(progress);
+
+    if (timeFraction < 1) {
+      requestAnimationFrame(animate);
+    }
+
+  });
+}
+
+ function makeEaseOut(timing) {
+      return function(timeFraction) {
+        return 1 - timing(1 - timeFraction);
+      }
+    }
+
+    function bounce(timeFraction) {
+      for (let a = 0, b = 1, result; 1; a += b, b /= 2) {
+        if (timeFraction >= (7 - 4 * a) / 11) {
+          return -Math.pow((11 - 6 * a - 11 * timeFraction) / 4, 2) + Math.pow(b, 2)
+        }
+      }
+    }
+
+    function quad(timeFraction) {
+      return Math.pow(timeFraction, 2);
+    }
+
+    ball.onclick = function() {
+
+      let height = 800 - ball.clientHeight;
+      let width = 100;
+
+      animate({
+        duration: 2000,
+        timing: makeEaseOut(bounce),
+        draw: function(progress) {
+          ball.style.top = height * progress + 'px'
+        }
+      });
+
+      animate({
+        duration: 2000,
+        timing: makeEaseOut(quad),
+        draw: function(progress) {
+          ball.style.left = width * progress + "px"
+        }
+      });
+    }
+
 
 function dragstart_handler(ev) {
  console.log("dragStart");
@@ -18,6 +79,7 @@ function dragstart_handler(ev) {
   */
   
 }
+
 function dragover_handler(ev) {
  console.log("dragOver");
  // Change the target element's border to signify a drag over event
@@ -32,6 +94,7 @@ function dragover_handler(ev) {
  */
  //console.log("element", el.getBoundingClientRect().x, el.getBoundingClientRect().y);
 }
+
 function drop_handler(ev) {
   console.log("Drop");
   ev.preventDefault();
@@ -49,6 +112,7 @@ function drop_handler(ev) {
     }
     */
     console.log("element", el.getBoundingClientRect().x, el.getBoundingClientRect().y);
+    console.log("element", el.getBoundingClientRect());
     
     ev.target.appendChild(el);
     console.log(ev.target);
@@ -65,10 +129,10 @@ function drop_handler(ev) {
     //console.log(ev.clientX, dropBox.x, ev.screenX - dropBox.x);
     //console.log(ev.clientY, dropBox.y, ev.screenY - dropBox.y);
     
-    el.style.left = (ev.clientX - dropBox.x) + "px";
-    el.style.top = (ev.clientY - dropBox.y) + "px";
+    el.style.left = (ev.clientX - dropBox.x - 0.5*el.getBoundingClientRect().width) + "px";
+    el.style.top = (ev.clientY - dropBox.y - 0.5*el.getBoundingClientRect().height) + "px";
     
-    console.log(el);
+    console.log(dropBox);
   }
   
   // Copy the element if the source and destination ids are both "copy"
@@ -78,6 +142,7 @@ function drop_handler(ev) {
    ev.target.appendChild(nodeCopy);
   }
 }
+
 function dragend_handler(ev) {
   console.log("dragEnd");
   // Restore source's border
