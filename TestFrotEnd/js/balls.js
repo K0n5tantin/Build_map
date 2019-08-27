@@ -64,12 +64,7 @@ function dragover_handler(ev) {
  //ev.currentTarget.style.background = "lightblue";
  
  ev.preventDefault();
- /*
- let id = ev.dataTransfer.getData("text");
- let el = document.getElementById(id);
- console.log("element", el);
- */
- //console.log("element", el.getBoundingClientRect().x, el.getBoundingClientRect().y);
+ 
 }
 
 function drop_handler(ev) {
@@ -82,7 +77,8 @@ function drop_handler(ev) {
   let el = document.getElementById(id);
   
   // Only Move the element if the source and destination ids are both "move"
-  if (id == "src_move" && ev.target.id == "dest_move"){
+  //if (id == "src_move" && ev.target.id == "dest_move"){
+  if (ev.target.id == "dest_move"){
     /*
     let dropPlace = {
       x: el 
@@ -104,14 +100,17 @@ function drop_handler(ev) {
     let dropBox = ev.target.getBoundingClientRect();
     
     //console.log(ev.clientX, dropBox.x, ev.screenX - dropBox.x);
-    //console.log(ev.clientY, dropBox.y, ev.screenY - dropBox.y);
+    //
     
     let dropLeft = (ev.clientX - dropBox.x - 0.5*el.getBoundingClientRect().width);
     let dropTop = (ev.clientY - dropBox.y - 0.5*el.getBoundingClientRect().height);
     
+    
+    console.log(ev.target.getBoundingClientRect().height);
+    console.log(ev.target);
     //--------------------
-    let height = 800 - dropTop - el.clientHeight;
-    let width = 100;
+    let height = ev.target.getBoundingClientRect().height - dropTop - el.clientHeight - 6;
+    let width = 0;
 
     animate({
       duration: 2000,
@@ -134,11 +133,13 @@ function drop_handler(ev) {
   }
   
   // Copy the element if the source and destination ids are both "copy"
+  /*
   if (id == "src_copy" && ev.target.id == "dest_copy") {
    let nodeCopy = document.getElementById(id).cloneNode(true);
    nodeCopy.id = "newId";
    ev.target.appendChild(nodeCopy);
   }
+  */
 }
 
 function dragend_handler(ev) {
