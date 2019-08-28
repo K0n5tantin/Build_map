@@ -111,6 +111,11 @@ function drop_handler(ev) {
     //--------------------
     let height = ev.target.getBoundingClientRect().height - dropTop - el.clientHeight - 6;
     let width = 0;
+    
+    if (dropLeft <= 0.5*el.getBoundingClientRect().width) { width = 100; }
+    console.log(dropLeft);
+    console.log((dropLeft >= (ev.target.getBoundingClientRect().width - el.getBoundingClientRect().width)));
+    if (dropLeft >= (ev.target.getBoundingClientRect().width - el.getBoundingClientRect().width)) { width = -100; }
 
     animate({
       duration: 2000,
