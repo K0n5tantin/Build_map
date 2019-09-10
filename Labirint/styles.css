@@ -1,0 +1,56 @@
+.maze{
+  position:absolute;
+  border: solid 2px gray;
+}
+
+.row{
+  position:relative;
+  /* border: solid 1px green; */
+}
+
+.corridor{
+    position: relative;
+    display: table-cell;
+    height: 30px;
+    width: 30px;
+    background: yellow;
+    border: solid 2px yellow;
+}
+
+
+.walltop{
+  border-top: solid 2px black;
+}
+
+.wallbottom{
+  border-bottom: solid 2px black;
+}
+
+.wallleft{
+  border-left: solid 2px black;
+}
+
+.wallright{
+  border-right: solid 2px black;
+}
+
+.slide {
+  opacity: 0;
+  z-index: 10;
+  position: absolute;
+  margin-top: 0px;
+}
+
+[id^='slide']:checked +.slide {
+  opacity: 1;
+  z-index: 100;
+   
+ }
+
+input{
+  width:50px;
+}
+ 
+body {
+ background: #fff;
+}
